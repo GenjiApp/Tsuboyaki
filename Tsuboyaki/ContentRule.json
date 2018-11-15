@@ -1,0 +1,9 @@
+[{
+  "trigger": {
+    "url-filter": ".*HoverCard.*",
+    "resource-type": ["script"]
+  },
+  "action": {
+    "type": "block"
+  }
+ }]
