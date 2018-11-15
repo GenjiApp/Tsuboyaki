@@ -18,6 +18,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
     self.webView.navigationDelegate = self
     self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
 
