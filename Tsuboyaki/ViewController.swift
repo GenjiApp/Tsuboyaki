@@ -7,13 +7,19 @@
 //
 
 import Cocoa
+import WebKit
 
 class ViewController: NSViewController {
+
+  @IBOutlet weak var webView: WKWebView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
+    self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
+    let twitterURL = URL(string: "https://twitter.com/home")
+    let urlRequest = URLRequest(url: twitterURL!)
+    self.webView.load(urlRequest)
   }
 
   override var representedObject: Any? {
