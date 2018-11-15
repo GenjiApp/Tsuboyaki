@@ -9,13 +9,16 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, WKNavigationDelegate {
 
   @IBOutlet weak var webView: WKWebView!
+
+  let twitterURL = URL(string: "https://mobile.twitter.com/home")!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.webView.navigationDelegate = self
     self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
 
     if let urlForContentRule = Bundle.main.url(forResource: "ContentRule", withExtension: "json") {
@@ -32,8 +35,7 @@ class ViewController: NSViewController {
       }
     }
 
-    let twitterURL = URL(string: "https://twitter.com/home")
-    let urlRequest = URLRequest(url: twitterURL!)
+    let urlRequest = URLRequest(url: twitterURL)
     self.webView.load(urlRequest)
   }
 
@@ -43,6 +45,16 @@ class ViewController: NSViewController {
     }
   }
 
+  // MARK: - WKNavigatoinDelegate
+  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    if let url = navigationAction.request.url, url.host != twitterURL.host {
+      NSWorkspace.shared.open(url)
+      decisionHandler(.cancel)
+    }
+    else {
+      decisionHandler(.allow)
+    }
+  }
 
 }
 
