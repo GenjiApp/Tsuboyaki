@@ -14,6 +14,7 @@
 		B6459378219DA23300337A0C /* TsuboyakiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459377219DA23300337A0C /* TsuboyakiTests.swift */; };
 		B6459383219DA23300337A0C /* TsuboyakiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6459382219DA23300337A0C /* TsuboyakiUITests.swift */; };
 		B6459391219DA83000337A0C /* ContentRule.json in Resources */ = {isa = PBXBuildFile; fileRef = B6459390219DA83000337A0C /* ContentRule.json */; };
+		B6459393219E580800337A0C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B6459392219E580800337A0C /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		B6459382219DA23300337A0C /* TsuboyakiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsuboyakiUITests.swift; sourceTree = "<group>"; };
 		B6459384219DA23300337A0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6459390219DA83000337A0C /* ContentRule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ContentRule.json; sourceTree = "<group>"; };
+		B6459392219E580800337A0C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B6459394219E581E00337A0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				B6459390219DA83000337A0C /* ContentRule.json */,
 				B645936D219DA23200337A0C /* Info.plist */,
 				B645936E219DA23200337A0C /* Tsuboyaki.entitlements */,
+				B6459392219E580800337A0C /* LICENSE */,
+				B6459394219E581E00337A0C /* README.md */,
 			);
 			path = Tsuboyaki;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			files = (
 				B6459369219DA23200337A0C /* Assets.xcassets in Resources */,
 				B645936C219DA23200337A0C /* Main.storyboard in Resources */,
+				B6459393219E580800337A0C /* LICENSE in Resources */,
 				B6459391219DA83000337A0C /* ContentRule.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
