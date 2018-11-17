@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController, WKNavigationDelegate {
+class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
 
   @IBOutlet weak var webView: WKWebView!
 
@@ -20,6 +20,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
 
     self.webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
     self.webView.navigationDelegate = self
+    self.webView.uiDelegate = self
     self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
 
     if let urlForContentRule = Bundle.main.url(forResource: "ContentRule", withExtension: "json") {
@@ -54,6 +55,27 @@ class ViewController: NSViewController, WKNavigationDelegate {
     }
     else {
       decisionHandler(.allow)
+    }
+  }
+
+  // MARK: - WKUIDelegate
+  func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
+    let openPanel = NSOpenPanel()
+    openPanel.canChooseFiles = true
+    openPanel.canChooseDirectories = false
+    openPanel.allowsMultipleSelection = true
+    if let window = self.view.window {
+      openPanel.beginSheetModal(for: window, completionHandler: {(response) in
+        if response == .OK {
+          completionHandler(openPanel.urls)
+        }
+        else {
+          completionHandler(nil)
+        }
+      })
+    }
+    else {
+      completionHandler(nil)
     }
   }
 
