@@ -43,8 +43,14 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
 
   override var representedObject: Any? {
     didSet {
-    // Update the view, if already loaded.
+      // Update the view, if already loaded.
     }
+  }
+
+  // MARK: - Action Method
+  @IBAction func goHome(_ sender: Any) {
+    let urlRequest = URLRequest(url: twitterURL)
+    self.webView.load(urlRequest)
   }
 
   // MARK: - WKNavigatoinDelegate

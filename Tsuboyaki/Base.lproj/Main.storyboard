@@ -299,6 +299,29 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="History" id="kvu-aW-7gH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="History" id="xf6-eG-t6D">
+                                    <items>
+                                        <menuItem title="Back" keyEquivalent="[" id="ApE-DF-NtQ">
+                                            <connections>
+                                                <action selector="goBack:" target="Ady-hI-5gd" id="zMX-OT-wsr"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Forward" keyEquivalent="]" id="3Eq-Gh-XsJ">
+                                            <connections>
+                                                <action selector="goForward:" target="Ady-hI-5gd" id="UlG-kt-xkx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Home" keyEquivalent="H" id="vr7-7B-VXm">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="goHome:" target="Ady-hI-5gd" id="EL5-QL-Ixs"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
