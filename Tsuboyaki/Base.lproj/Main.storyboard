@@ -307,6 +307,12 @@
                                                 <action selector="goHome:" target="Ady-hI-5gd" id="EL5-QL-Ixs"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Y38-e8-gp8"/>
+                                        <menuItem title="Reload" keyEquivalent="r" id="BM6-Wt-xzx">
+                                            <connections>
+                                                <action selector="reload:" target="Ady-hI-5gd" id="BID-Jk-i8N"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="mEl-RD-iin"/>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
