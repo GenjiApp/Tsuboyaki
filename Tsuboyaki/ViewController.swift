@@ -37,6 +37,17 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
       }
     }
 
+    if let urlForCustomStyleScript = Bundle.main.url(forResource: "CustomStyle", withExtension: "js") {
+      do {
+        let stringForCustomStyleScript = try String(contentsOf: urlForCustomStyleScript)
+        let userScript = WKUserScript(source: stringForCustomStyleScript, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+        self.webView.configuration.userContentController.addUserScript(userScript)
+      }
+      catch {
+
+      }
+    }
+
     let urlRequest = URLRequest(url: twitterURL)
     self.webView.load(urlRequest)
   }
