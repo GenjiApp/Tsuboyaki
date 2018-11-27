@@ -23,29 +23,17 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, NSMe
     self.webView.uiDelegate = self
     self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
 
-    if let urlForContentRule = Bundle.main.url(forResource: "ContentRule", withExtension: "json") {
-      do {
-        let stringForContentRule = try String(contentsOf: urlForContentRule)
-        WKContentRuleListStore.default()?.compileContentRuleList(forIdentifier: "ContentRule", encodedContentRuleList: stringForContentRule, completionHandler: { (contentRuleList, error) in
-          if let contentRuleList = contentRuleList {
-            self.webView.configuration.userContentController.add(contentRuleList)
-          }
-        })
-      }
-      catch {
-
-      }
+    if let urlForContentRule = Bundle.main.url(forResource: "ContentRule", withExtension: "json"), let stringForContentRule = try? String(contentsOf: urlForContentRule) {
+      WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentRule", encodedContentRuleList: stringForContentRule, completionHandler: { (contentRuleList, error) in
+        if let contentRuleList = contentRuleList {
+          self.webView.configuration.userContentController.add(contentRuleList)
+        }
+      })
     }
 
-    if let urlForCustomStyleScript = Bundle.main.url(forResource: "CustomStyle", withExtension: "js") {
-      do {
-        let stringForCustomStyleScript = try String(contentsOf: urlForCustomStyleScript)
-        let userScript = WKUserScript(source: stringForCustomStyleScript, injectionTime: .atDocumentStart, forMainFrameOnly: true)
-        self.webView.configuration.userContentController.addUserScript(userScript)
-      }
-      catch {
-
-      }
+    if let urlForCustomStyleScript = Bundle.main.url(forResource: "CustomStyle", withExtension: "js"), let stringForCustomStyleScript = try? String(contentsOf: urlForCustomStyleScript) {
+      let userScript = WKUserScript(source: stringForCustomStyleScript, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+      self.webView.configuration.userContentController.addUserScript(userScript)
     }
 
     let urlRequest = URLRequest(url: twitterURL)
