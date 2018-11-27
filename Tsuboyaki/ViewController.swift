@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
+class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, NSMenuItemValidation {
 
   @IBOutlet weak var webView: WKWebView!
 
@@ -62,6 +62,15 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
   @IBAction func goHome(_ sender: Any) {
     let urlRequest = URLRequest(url: twitterURL)
     self.webView.load(urlRequest)
+  }
+
+  // MARK: - NSMenuItemValidation
+  func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    if menuItem.action == #selector(goHome(_:)) {
+      return self.webView.url != twitterURL
+    }
+
+    return true
   }
 
   // MARK: - WKNavigatoinDelegate
