@@ -14,11 +14,13 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, NSMe
   @IBOutlet weak var webView: WKWebView!
 
   let twitterURL = URL(string: "https://mobile.twitter.com/home")!
+  let defaultMinimumFontSize: CGFloat = 14.0
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+    self.webView.configuration.preferences.minimumFontSize = defaultMinimumFontSize
     self.webView.navigationDelegate = self
     self.webView.uiDelegate = self
     self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1"
@@ -52,13 +54,28 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, NSMe
     self.webView.load(urlRequest)
   }
 
+  @IBAction func increaseMinimumFontSize(_ sender: Any) {
+    self.webView.configuration.preferences.minimumFontSize += 2.0
+  }
+
+  @IBAction func decreaseMinimumFontSize(_ sender: Any) {
+    self.webView.configuration.preferences.minimumFontSize -= 2.0
+  }
+
+  @IBAction func resetMinimumFontSize(_ sender: Any) {
+    self.webView.configuration.preferences.minimumFontSize = defaultMinimumFontSize
+  }
+
   // MARK: - NSMenuItemValidation
   func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-    if menuItem.action == #selector(goHome(_:)) {
+    switch menuItem.action {
+    case #selector(goHome(_:)):
       return self.webView.url != twitterURL
+    case #selector(decreaseMinimumFontSize(_:)), #selector(resetMinimumFontSize(_:)):
+      return self.webView.configuration.preferences.minimumFontSize != defaultMinimumFontSize
+    default:
+      return true
     }
-
-    return true
   }
 
   // MARK: - WKNavigatoinDelegate
