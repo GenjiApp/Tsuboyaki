@@ -202,6 +202,7 @@
 				TargetAttributes = {
 					B6459360219DA23100337A0C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -210,10 +211,12 @@
 					};
 					B6459372219DA23300337A0C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = B6459360219DA23100337A0C;
 					};
 					B645937D219DA23300337A0C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = B6459360219DA23100337A0C;
 					};
 				};
@@ -452,7 +455,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.Tsuboyaki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
@@ -471,7 +474,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.Tsuboyaki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
@@ -491,7 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.TsuboyakiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tsuboyaki.app/Contents/MacOS/Tsuboyaki";
 			};
 			name = Debug;
@@ -511,7 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.TsuboyakiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tsuboyaki.app/Contents/MacOS/Tsuboyaki";
 			};
 			name = Release;
@@ -530,7 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.TsuboyakiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Tsuboyaki;
 			};
 			name = Debug;
@@ -549,7 +552,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genjiapp.TsuboyakiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Tsuboyaki;
 			};
 			name = Release;
